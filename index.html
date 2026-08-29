@@ -181,7 +181,8 @@ orderForm.onsubmit=e=>{
     size:document.getElementById('productSizeHidden').value,
     qty:`${document.getElementById('qtyHidden').value} مؤكدة`,
     delivery:document.getElementById('deliveryHidden').value,
-    total:`${totalVal} promo`,
+    total:totalVal,
+    source:'promo',
     status:'مكتمل'
   };
   fetch(SHEET_WEBHOOK_URL,{method:'POST',body:JSON.stringify(sheetData)})
@@ -230,7 +231,8 @@ function buildPartialData(statusLabel){
     size:document.getElementById('productSizeHidden').value||'',
     qty:document.getElementById('qtyHidden').value||'0',
     delivery:document.getElementById('deliveryHidden').value||'',
-    total:`${document.getElementById('totalHidden').value||'0'} promo`,
+    total:document.getElementById('totalHidden').value||'0',
+    source:'promo',
     status:statusLabel
   };
 }
